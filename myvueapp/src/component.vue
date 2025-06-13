@@ -1,0 +1,113 @@
+<script setup></script>
+
+<template>
+
+    <div class="todo_app">
+        <div class="title">Todo App</div>
+        <div class="todoform">
+            <input class="todo-input" type="text" placeholder="add a todo"/>
+            <div class="todo-button">add todo</div>
+        </div>
+
+        <div class="item completed">
+            <div>
+                <input type="checkbox"/>
+                <span class="name">吃饭</span>
+            </div>
+            <div class="del">del</div>
+        </div>
+
+        <div class="item">
+            <div>
+                <input type="checkbox"/>
+                <span class="name">吃饭</span>
+            </div>
+            <div class="del">del</div>
+        </div>
+
+        <div class="item">
+            <div>
+                <input type="checkbox"/>
+                <span class="name">吃饭</span>
+            </div>
+            <div class="del">del</div>
+        </div>
+    </div>
+</template>
+
+    <style>
+        .completed{
+            text-decoration: line-through;
+            opacity: 0.4;
+        }
+        .del{
+            color: red;
+        }
+        .item{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            width: 80%;
+            height: 50px;
+            margin: 8px auto;
+            padding: 16px;
+            border-radius: 20px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 20px;
+        }
+        .todo-button{
+            width: 100px;
+            height: 52px;
+            border-radius: 0 20px 20px 0;
+            line-height: 52px;
+            text-align: center;
+            background: linear-gradient(
+                to right,
+                #572ce5,
+                #a25fe0
+            );
+            cursor: pointer;
+            user-select: none;
+            color: #ffff;
+
+            
+        }
+        .todo-input{
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border: 1px solid #dfe1e5;
+            outline:none;
+            width:60%;
+            height:50px;
+            border-radius: 20px 0 0 20px;
+        }
+        .todoform{
+            display: flex;
+            margin-top: 20px;
+            margin-left: 30px;
+           
+        }
+        body{
+            background:linear-gradient(
+                to right,
+                #572ce5,
+                #a25fe0);
+        }
+        .todo_app{
+            width:98%;
+            height: 500px;
+            background-color:#ffff;
+            margin: 0 auto;   
+            border-radius: 10px;
+            margin-top: 40px;
+            padding-top: 30px;
+            box-sizing: border-box;
+        }
+        .title{
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            
+        }
+    </style>
+

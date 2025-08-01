@@ -50,7 +50,7 @@ eg:
 ```html
 <p>HTML 中用 <p> 来定义段落元素。</p>
 
-<p>HTML 中用 &lt;p&gt; 来定义段落元素</p>
+<p>HTML 中用 <p> 来定义段落元素</p>
 ```
 
 #### 注释
@@ -228,7 +228,7 @@ practice见play/list.html
 
 - `<header>`：页眉。
 - `<nav>`：导航栏。
-- `<main>`：主内容。主内容中还可以有各种子内容区段，可用`<article>`、`<section>` 和 `<div>` 等元素表示。
+- `<main>`：主内容。主内容中还可以有各种子内容区段，可用 `<article>`、`<section>` 和 `<div>` 等元素表示。
 - `<aside>`：侧边栏，经常嵌套在 `<main>` 中。
 - `<footer>`：页脚。
 
@@ -246,30 +246,38 @@ practice见play/list.html
 `<div>`块级无语义元素
 （不可滥用无语义元素）
 `<br>`换行 `<hr>`渲染后是一条直线分割线
+
 ## 文本格式进阶
+
 #### 引用
+
 - 块引用 `<blockquote>`
+
 ```html
 <p>这是块引用：</p>
 <blockquote
   cite="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/blockquote">
   <p>
-    <strong>HTML <code>&lt;blockquote&gt;</code> 元素</strong>（或<em
+    <strong>HTML <code><blockquote></code> 元素</strong>（或<em
       >HTML 块级引用元素</em
     >）表示所附文本为扩展引用。
   </p>
 </blockquote>
 ```
+
 - 行内引用
+
 ```html
 <p>
-  引用元素 <code>&lt;q&gt;</code> 是<q
+  引用元素 <code><q></code> 是<q
     cite="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/q"
     >用于不需要段落分隔的短引用。</q
   >
 </p>
 ```
+
 - 引文
+
 ```html
 <p>
   根据<a href="/zh-CN/docs/Web/HTML/Element/blockquote"><cite>MDN 块引用页</cite></a>：
@@ -278,14 +286,15 @@ practice见play/list.html
 <blockquote
   cite="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/blockquote">
   <p>
-    <strong>HTML <code>&lt;blockquote&gt;</code> 元素</strong>（或<em>HTML 块级引用元素</em>）表示所附文本为扩展引用。
+    <strong>HTML <code><blockquote></code> 元素</strong>（或<em>HTML 块级引用元素</em>）表示所附文本为扩展引用。
   </p>
 </blockquote>
 
 <p>
-  引用元素 <code>&lt;q&gt;</code> 是<q cite="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/q">用于不需要段落分隔的短引用。</q>——<a href="/zh-CN/docs/Web/HTML/Element/q"> <cite>MDN q 页面</cite></a>
+  引用元素 <code><q></code> 是<q cite="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/q">用于不需要段落分隔的短引用。</q>——<a href="/zh-CN/docs/Web/HTML/Element/q"> <cite>MDN q 页面</cite></a>
 </p>
 ```
+
 **另外**,需要强调的是
 块引用（blockquote）元素的 `cite` 属性用于指定被引用内容的来源 URL。
 
@@ -312,7 +321,9 @@ practice见play/list.html
 - 这个属性主要用于机器可读的语义信息，对 SEO 和可访问性有帮助
 
 虽然 `cite` 属性不会直接影响页面的视觉呈现，但它是 HTML 语义化的重要组成部分，有助于创建更有意义和结构化的网页内容。
+
 #### 缩略语
+
 ```html
 <p>我们使用 <abbr>HTML</abbr> 超文本标记语言来组织网页文档。</p>
 
@@ -326,3 +337,99 @@ practice见play/list.html
 `<address></address>`
 `<sub></sub>`,`<sup></sup>`
 `<code></code>`等等
+
+## HTML中的图片
+
+#### 设置宽度和高度
+
+这样做有一个好处。你页面的 HTML 和图片是分开的资源，由浏览器用相互独立的 HTTP(S) 请求来获取。一旦浏览器接收到 HTML，它就会开始将其显示给用户。如果图片尚未接收到（通常会是这种情况，因为图片文件的大小通常比 HTML 文件大得多），那么浏览器将只渲染 HTML，并在图片接收到后立即更新页面。
+移动文本对用户来说非常分散注意力，尤其是如果他们已经开始阅读文本的情况下。
+如果你在 HTML 中使用 width 和 height 属性来指定图片的实际大小，那么在下载图片之前，浏览器就知道需要为其留出多少空间。
+这样的话，当图片下载完成时，浏览器不需要移动周围的内容。
+
+#### 通过为图片搭配说明文字的方式来解说图片
+
+使用 `<figure>`,`<figcaption>`来为图片提供一个语义容器，在说明文字和图片之间建立清晰的关联。
+
+```html
+<figure>
+  <img
+    src="images/dinosaur.jpg"
+    alt="The head and torso of a dinosaur skeleton;
+            it has a large head with long sharp teeth"
+    width="400"
+    height="341" />
+
+  <figcaption>
+    A T-Rex on display in the Manchester University Museum.
+  </figcaption>
+</figure>
+```
+
+figure 里不一定要是图片，只要是这样的独立内容单元即可：
+
+- 用简洁、易懂的方式表达意图。
+- 可以置于页面线性流的某处。
+- 为主要内容提供重要的补充说明。
+  figure 可以是几张图片、一段代码、音视频、方程、表格或类似的东西。
+
+**如果图像对你的内容有意义，则应使用 HTML 图像。如果图像纯粹是装饰，则应使用 CSS 背景图片。**
+
+#### 网页上的其他图形
+
+浏览器提供了使用代码创建 2D 和 3D 图形的方法，以及包含来自上传文件或用户摄像头实时流的视频。以下是有关这些更高级图像主题的文章链接：
+
+- Canvas
+  `<canvas>` 元素提供了使用 JavaScript 绘制 2D 图形的 API。
+- SVG
+  你可以借助可缩放矢量图形（SVG）来使用线条、曲线和其他几何形状来渲染 2D 图形。借助矢量图形，你可以创建能够以任意尺寸清晰缩放的图像。
+- WebGL
+  WebGL API 指南将帮助你入门 WebGL，这是用于 Web 的 3D 图形 API，可让你在 Web 内容中使用标准的 OpenGL ES。
+- 使用 HTML 音频和视频
+  与 `<img> `类似，你可以使用 HTML 将 `<video>`和 `<audio>` 嵌入到网页中，并控制其播放。
+- WebRTC
+  WebRTC 中的 RTC 代表实时通信（Real-Time Communications），这是一种可以在浏览器客户端（对等方）之间进行音频/视频流和数据共享的技术。
+
+## 视频和音频
+
+#### `<video>`元素,`<audio>`元素
+
+- 有关 `<video>`的特性见示例代码
+  ```html
+  <video
+    controls
+    width="400"
+    height="400"
+    autoplay
+    loop
+    muted
+    preload="auto"
+    poster="poster.png">
+    <source src="rabbit320.mp4" type="video/mp4" />
+    <source src="rabbit320.webm" type="video/webm" />
+    <p>你的浏览器不支持此视频。可点击<a href="rabbit320.mp4">此链接</a>观看</p>
+  </video>
+  ```
+- `<audio>`
+  ```html
+  <audio controls>
+  <source src="viper.mp3" type="audio/mp3" />
+  <source src="viper.ogg" type="audio/ogg" />
+  <p>你的浏览器不支持该音频，可点击<a href="viper.mp3">此链接</a>收听。</p>
+  </audio>
+  ```
+
+#### 显示视频文本
+
+要让其与 HTML 媒体一起显示，你需要做如下工作：
+
+将其保存为 .vtt 文件，放在服务器可以提供服务的地方（见下文），例如和 HTML 文件放在同一文件夹。
+用 `<track> `标签链接 .vtt 文件，`<track> `标签需放在 `<audio>` 或 `<video>` 标签当中，同时需要放在所有 ` <source>` 标签之后。使用 kind 属性来指明是 subtitles、captions 还是 descriptions。然后，使用 srclang 来告诉浏览器你是用什么语言来编写的 subtitles。最后，添加 label，以帮助读者在查找时识别语言。
+
+```html
+<video controls>
+  <source src="example.mp4" type="video/mp4" />
+  <source src="example.webm" type="video/webm" />
+  <track kind="subtitles" src="subtitles_es.vtt" srclang="es" label="Spanish" />
+</video>
+```

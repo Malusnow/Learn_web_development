@@ -433,3 +433,19 @@ figure 里不一定要是图片，只要是这样的独立内容单元即可：
   <track kind="subtitles" src="subtitles_es.vtt" srclang="es" label="Spanish" />
 </video>
 ```
+## HTML表格基础
+####
+`<th>`行标题，`<td>`行内数据,`<tr>`表格行
+`<caption>`用于为表格添加标题
+`<thead>`,`<tbody>`,`<tfoot>`,将表格结构化，分为头，体，尾
+```html
+<colgroup>
+    <col />
+    <col style="background-color: yellow" />
+  </colgroup>
+```
+`<colgroup>`用来统一指定样式信息
+
+colspan属性可以用于说明占据多少列，rowspan同理
+- 使用scope来创建关联
+- 或使用id,headers属性让创建关联

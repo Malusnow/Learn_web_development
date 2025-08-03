@@ -13,7 +13,7 @@ sealos地址：[sealos](https://cloud.sealos.run/?uid=Kt1gH3_BTa)
 
 ## web
 
-收纳了前端三件套的学习笔记以及学习过程中用于查看效果的代码。
+收纳了前端三件套的学习笔记以及学习过程中用于查看效果的代码。  
 学习网站及所有练习测试内容请参考Mozilla的网站[Mdn Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn_web_development)
 
 ## Vue 3 + Vite

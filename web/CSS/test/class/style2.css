@@ -1,0 +1,16 @@
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+/* 在这里添加样式 */
+#special {
+    background-color: yellow;
+}
+.alert {
+    border: 2px solid grey;
+}
+.alert.stop {
+    background-color: red;
+}
+.alert.go {
+    background-color: green;
+}

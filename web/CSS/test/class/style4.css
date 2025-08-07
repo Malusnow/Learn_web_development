@@ -1,0 +1,11 @@
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+/* 在这里添加样式 */
+h2 + p {
+    color: red;
+}
+.list > li {
+    list-style: none;
+    border-bottom: 1px solid grey;
+}
